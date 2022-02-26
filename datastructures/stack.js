@@ -26,11 +26,15 @@ class LinkedList {
     append(value) {
         let temp = new Node();
         temp.data = value;
-        let traveler = this.head;
-        while(traveler.next != null) {
-            traveler = traveler.next;
+        if(this.head != null) {
+            let traveler = this.head;
+            while(traveler.next != null) {
+                traveler = traveler.next;
+            }
+            traveler.next = temp;
+        } else {
+            this.head = temp;
         }
-        traveler.next = temp;
         this.length++;
     }
 
