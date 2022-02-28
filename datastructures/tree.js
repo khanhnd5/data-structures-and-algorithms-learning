@@ -59,6 +59,44 @@ class Tree {
         }
     }
 
+    bfs() {
+        let queue = [];
+        let nodes = [];
+        if(this.root == null) return nodes;
+        queue.push(this.root);
+        while(queue.length != 0) {
+            let node = queue[0];
+            nodes.push(node.data);
+            if(node.left) {
+                queue.push(node.left);
+            }
+            if(node.right) {
+                queue.push(node.right);
+            }
+            queue.splice(0, 1);
+        }
+        return nodes;
+    }
+
+    dfs() {
+        let stack = [];
+        let nodes = [];
+        if(this.root == null) return nodes;
+        stack.push(this.root);
+        while(stack.length != 0) {
+            let node = stack[stack.length - 1];
+            nodes.push(node.data);
+            stack.splice(stack.length - 1, 1);
+            if(node.left) {
+                stack.push(node.left);
+            }
+            if(node.right) {
+                stack.push(node.right);
+            }
+        }
+        return nodes;
+    }
+
     display() {
         console.log(this.root);
     }
@@ -74,3 +112,5 @@ tree.insert(15);
 tree.insert(45);
 tree.display();
 console.log(tree.lookup(20));
+console.log(tree.bfs());
+console.log(tree.dfs());
