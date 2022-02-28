@@ -66,9 +66,11 @@ class Tree {
 
 let tree = new Tree();
 tree.insert(9);
-tree.insert(1);
 tree.insert(4);
-tree.insert(10);
+tree.insert(1);
+tree.insert(6);
 tree.insert(20);
+tree.insert(15);
+tree.insert(45);
 tree.display();
-console.log(tree.lookup(10));
+console.log(tree.lookup(20));
